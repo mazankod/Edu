@@ -1,0 +1,46 @@
+
+list []
+value = [1, 2, 5]
+value[0]                     1
+value[10]                    IndexError
+value[2] = 3                 [1, 2, 3]
+value.append(42)             [1, 2, 3, 42]
+    Добавление элемента в конец
+value.extend([4, 5, 6])      [1, 2, 3, 42, 4, 5, 6]
+    Расширение коллекции
+value.insert(0, 20)          [20, 1, 2, ...]
+    Добавление (куда,что)
+value.sort()                 [1, 2, 3, 4, 5, 6, 20, 42]
+    Сортировка элементов
+value.pop()                  42
+    Возвращение эеменота и уменьшение на 1 кол-во элементов в списке
+["foo", "bar"] + value       ["foo", 'bar", 1, 2, ...]
+    сложение списков
+
+tuple () Кортеж
+value = (1, 2, 3)
+value[1]                           2
+("foo", "bar", True) + value       ("foo", "bar", True, 1, 2, 3)
+    сложение кортежей
+value[1] = 2                       Exception
+    неизменяемые
+
+dictionary {} Словарь
+    Key-value storage
+    Mutable
+    O(1) access complexity
+    Any immutable value as a key - ключ НЕИЗМЕНЯЕМЫЙ ОБЪЕКТ
+
+             Key:value
+mydict = {"key1": 1, "key2": 2}
+mydict["key1"]                         1
+    Получение значения key
+mydict["foo"]                          KeyError
+mydict.get("foo")                      None
+    Получение "мягко" без exception
+mydict["key3"] = 2                     {... "key3": 3}
+mydict.update({"key3: 33"})            {... "key3": 33}
+mydict.keys()                          ["key1", "key2, ..."]
+mydict.values()                        [1, 2, 33]
+mydict.items()                         [("key1", 1), ("key2", 2),...]
+mydict.pop("key1")                     1
