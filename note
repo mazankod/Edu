@@ -1,5 +1,5 @@
 
-list []
+list [] Список
 value = [1, 2, 5]
 value[0]                     1
 value[10]                    IndexError
@@ -39,8 +39,91 @@ mydict["foo"]                          KeyError
 mydict.get("foo")                      None
     Получение "мягко" без exception
 mydict["key3"] = 2                     {... "key3": 3}
+    Передача значения ключу
 mydict.update({"key3: 33"})            {... "key3": 33}
+    Ключи из нового заменят старые, елси пары ключ:значение нет, то создается новый
 mydict.keys()                          ["key1", "key2, ..."]
+    Возврат ключей
 mydict.values()                        [1, 2, 33]
+    Возврат значений
 mydict.items()                         [("key1", 1), ("key2", 2),...]
+    Возврат пар, пары являются кортежами
 mydict.pop("key1")                     1
+    Извлечение и удаляет из словаря
+
+set {}
+    множество - каждое значение присутствует только один раз.
+    Основан на словаре.
+    Элементы неизменяемые элементы
+myset = {1, 2, 3}             {1, 2, 3}
+{1, 1, 2, 2, 3, 3}            {1, 2, 3}
+    Попытка объявления с повторяющимися эл-ми
+myset.add(4)                  {1, 2, 3, 4}
+    Добавление
+myset & {3, 4, 5}             {3, 4}
+    Пересечение
+myset | {3, 4, 5}             {1, 2, 3, 4, 5}
+    Объединение
+myset - {4, 3, 2}             {1}
+    Вычитание элементов
+
+    Операци над множ.
+In
+
+2 in [1, 2, 3]                      True
+    Есть ли в списке
+2 in (1, 2, 3)                      True
+    Есть ли в картеже
+"foo" in {"key1": 1, "key2": 2}     False
+    есть ли такой ключь в словаре
+True in {True, None, 42}            True
+
+
+SLICE срез
+2 не включая ДО
+mylist = [1, 2, 3, 4, 5]
+mylist[0:2]                     [1, 2]
+
+mylist[:3]                      [1, 2, 3]
+mylist[1:-1]                    [2, 3, 4]
+    Предполследний -1
+mylist[::2]                     [1, 3, 5]
+    Каждый 2ой
+mylist[::-2]                    [5, 3, 1]
+    Каждый 2ой с конца
+mylist[::-1]                    [5, 4, 3, 2, 1]
+    развернуть
+
+Iteration
+
+for x in [1, 2, 3]:               1, 2, 3
+    Элементы
+for x in ("foo", "bar", True):        "foo", "bar", True
+    Элементы
+for x in {"key1": 1, "key2": 2}       "key2", "key1"
+    Ключи(ключ:значение в 3) не гарантирует порядка
+for x in {42, "test", True}           "test", True, 42
+    Элементы в произвольном формате
+
+data = (1, 2, 3, 4, 5)
+for x in data[::-2]:                  5, 3, 1
+
+a, b = [1, 2]
+    a=1 b=2
+foo, bar, _, _, baz = (10, 20, None, None, 30)
+
+a, b = b, a + b
+a, b = (1, 2, 3)
+>> ValueError: too many values to unpack
+
+Tips
+
+unique_list   = list(set(some_list))
+    Создать уникальный список
+new_dict      = dict(zip(iter_keys, iter_vals))
+    Создание словаря. zip создание пар
+reversed_list = sorted(my_list, reverse=True)
+reversed_list = my_list[::-1]
+    Колеекция в обратном порядке
+
+enumerate() - порядковый номер

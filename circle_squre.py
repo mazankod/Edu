@@ -1,7 +1,7 @@
 import math
 
-x = raw_input('input x= ')
-figure = raw_input('figure is :')
+x = input('input x= ')
+figure = input('figure is :')
 try:
     x = int(x)
     figure = str(figure)
